@@ -1,6 +1,6 @@
-package be.ephys.magicfeather;
+package be.ephys.magicfeather.content;
 
-import be.ephys.cookiecore.config.Config;
+import be.ephys.magicfeather.config.Config;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -28,12 +28,12 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.WeakHashMap;
 
-public class ItemMagicFeather extends Item {
+public class MagicFeatherItem extends Item {
 
   public static final String NAME = "magicfeather";
   private static final WeakHashMap<Player, MagicFeatherData> playerData = new WeakHashMap<>();
 
-  @Config(name = "item.requires_curios", description = "If curios is installed, the magic feather will need to be installed in its charm slot to function.")
+  @Config(name = "content.requires_curios", description = "If curios is installed, the magic feather will need to be installed in its charm slot to function.")
   @Config.BooleanDefault(value = true)
   public static ForgeConfigSpec.BooleanValue looseRequiresCurios;
 
@@ -46,7 +46,7 @@ public class ItemMagicFeather extends Item {
     NEGATE_FALL_DAMAGE
   }
 
-  public ItemMagicFeather() {
+  public MagicFeatherItem() {
     super(
       new Item.Properties()
         .stacksTo(1)
@@ -115,7 +115,7 @@ public class ItemMagicFeather extends Item {
 
     Player player = Minecraft.getInstance().player;
     if (player != null) {
-      if (requiresCurios() && !isCuriosEquipped(player, ModItems.magicFeather)) {
+      if (requiresCurios() && !isCuriosEquipped(player, MFItems.magicFeather)) {
         tooltip.add(
           new TranslatableComponent(getDescriptionId(stack) + ".tooltip.requires_curios")
             .withStyle(Style.EMPTY.withColor(ChatFormatting.GRAY))
@@ -142,11 +142,11 @@ public class ItemMagicFeather extends Item {
 
     Player player = event.player;
 
-    MagicFeatherData data = ItemMagicFeather.playerData.get(player);
+    MagicFeatherData data = MagicFeatherItem.playerData.get(player);
     // if the player instance changes, we have to rebuild this.
     if (data == null || data.player != player) {
       data = new MagicFeatherData(player);
-      ItemMagicFeather.playerData.put(player, data);
+      MagicFeatherItem.playerData.put(player, data);
     }
 
     data.onTick();
@@ -171,7 +171,7 @@ public class ItemMagicFeather extends Item {
         return;
       }
 
-      boolean hasItem = hasItem(player, ModItems.magicFeather);
+      boolean hasItem = hasItem(player, MFItems.magicFeather);
       boolean mayFly = player.isCreative() || (hasItem && checkBeaconInRange(player));
 
       if (mayFly) {
@@ -203,7 +203,7 @@ public class ItemMagicFeather extends Item {
 
     private boolean slowFall() {
       // SOFT LANDING:
-      // on item removal, we disable flying until the player hits the ground
+      // on content removal, we disable flying until the player hits the ground
       // and only then do we remove the creative flight ability
 
       Abilities abilities = player.getAbilities();

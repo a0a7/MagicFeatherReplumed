@@ -140,14 +140,6 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     maven {
-        name = "GitHubPackages"
-        url = uri("https://maven.pkg.github.com/ephys/cookiecore")
-        credentials {
-            username = project.findProperty("gpr.user") as String ?: System.getenv("GH_MVN_USERNAME")
-            password = project.findProperty("gpr.key") as String ?: System.getenv("GH_MVN_PASSWORD")
-        }
-    }
-    maven {
         name "curios"
         url "https://maven.theillusivec4.top/"
     }
@@ -162,7 +154,6 @@ dependencies {
     // https://github.com/Ephys/CookieCore/packages/102415
     // You'll need to authenticate to Github Packages
     // See https://docs.github.com/en/packages/guides/configuring-gradle-for-use-with-github-packages#authenticating-to-github-packages
-    implementation fg.deobf('be.ephys.cookiecore:cookiecore:1.18.2-4.0.0-c56fd52')
 
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.18.2-5.0.7.1:api")
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.18.2-5.0.7.1")

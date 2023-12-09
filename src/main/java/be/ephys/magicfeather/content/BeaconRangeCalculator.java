@@ -1,6 +1,7 @@
-package be.ephys.magicfeather;
+package be.ephys.magicfeather.content;
 
-import be.ephys.cookiecore.config.Config;
+import be.ephys.magicfeather.MagicFeather;
+import be.ephys.magicfeather.config.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
@@ -57,7 +58,7 @@ public final class BeaconRangeCalculator {
     int maxRange = getRangeForLevel(6);
 
     Optional<BlockPos> foundBeaconPos = poiManager.find(
-      MagicFeatherMod.getBeaconPoi().getPredicate(),
+      MagicFeather.getBeaconPoi().getPredicate(),
       (pos) -> {
         BlockEntity blockEntityAtPos = world.getBlockEntity(pos);
 

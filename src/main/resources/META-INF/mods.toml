@@ -1,22 +1,23 @@
 modLoader="javafml"
 loaderVersion="[40,)"
 license="MIT"
-issueTrackerURL="https://github.com/Ephys/minecraft-magic-feather/issues"
+issueTrackerURL="https://github.com/sudolev/minecraft-magic-feather/issues"
 
 [[mods]]
 modId="magicfeather"
-version="${file.jarVersion}"
-displayName="Magic Feather"
-updateJSONURL="https://mc-curse-update-checker.herokuapp.com/284745"
+version="0.01"
+displayName="Magic Feather: Replumed"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/magic-feather"
 logoFile="logo.png"
-credits="RWTema for the original angel ring"
-authors="Ephys, EizhFox"
+credits="RWTema"
+authors="Ephys, EizhFox, sudolev"
 description='''
-Magic Feather is an alternative take on the Angel Ring item from Extra Utilities.
+The Magic Feather item is an alternative take on the Angel Ring from Extra Utilities.
 
 It balances creative flight by making it only available around Beacons, thus forcing the player
 to use alternative methods of travel when exploring.
+
+Magic Feather: Replumed is a port of Magic Feather for versions 1.19+
 '''
 [[dependencies.magicfeather]]
     modId="forge"
@@ -31,17 +32,10 @@ to use alternative methods of travel when exploring.
     ordering="NONE"
     side="BOTH"
 [[dependencies.magicfeather]]
-    modId="cookiecore"
-    mandatory=true
-    versionRange="[1.18.2-4.0.0,)"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.magicfeather]]
     modId="alexsmobs"
     mandatory=false
     ordering="AFTER"
     versionRange="[1.0.0,)"
-
 [[dependencies.magicfeather]]
     modId="curios"
     mandatory=false
