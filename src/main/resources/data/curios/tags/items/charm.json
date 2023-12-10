@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "magicfeather:magicfeather"
+    "magicfeather:magic_feather",
+    "magicfeather:arcane_feather"
   ]
 }

@@ -1,4 +1,5 @@
 {
-  "item.magicfeather.magicfeather": "Piuma Magica",
-  "item.magicfeather.magicfeather.tooltip.out_of_beacon_range": "Garantisce abilità di volo quando vicino a un Faro"
+  "item.magicfeather.magic_feather": "Piuma Magica",
+  "item.magicfeather.arcane_feather": "Piuma Arcana",
+  "item.magicfeather.magic_feather.tooltip.out_of_beacon_range": "Garantisce abilità di volo quando vicino a un Faro"
 }
