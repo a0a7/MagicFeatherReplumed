@@ -2,5 +2,9 @@
   "item.magicfeather.magic_feather": "Plume Magique",
   "item.magicfeather.arcane_feather": "Plume Arcanique",
   "item.magicfeather.magic_feather.tooltip.description": "Donne la capacité de voler à proximité d'un beacon",
-  "item.magicfeather.magic_feather.tooltip.requires_curios": "À placer dans l'emplacement pour charmes"
+  "item.magicfeather.magic_feather.tooltip.requires_curios": "À placer dans l'emplacement pour charmes",
+  "item.magicfeather.arcane_feather.tooltip.requires_curios": "À placer dans l'emplacement pour charmes",
+  "item.magicfeather.primeval_feather.tooltip.requires_curios": "À placer dans l'emplacement pour charmes",
+  "item.magicfeather.stygian_feather.tooltip.requires_curios": "À placer dans l'emplacement pour charmes"
+
 }

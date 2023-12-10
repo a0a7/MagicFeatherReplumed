@@ -1,6 +1,12 @@
 {
   "item.magicfeather.magic_feather": "Magic Feather",
   "item.magicfeather.arcane_feather": "Arcane Feather",
+  "item.magicfeather.primeval_feather": "Primeval Feather",
+  "item.magicfeather.stygian_feather": "Stygian Feather",
   "item.magicfeather.magic_feather.tooltip.description": "Grants flight abilities when near a beacon",
-  "item.magicfeather.magic_feather.tooltip.requires_curios": "Place in Charm slot"
+  "item.magicfeather.magic_feather.tooltip.requires_curios": "Place in Charm slot",
+  "item.magicfeather.arcane_feather.tooltip.requires_curios": "Place in Charm slot",
+  "item.magicfeather.primeval_feather.tooltip.requires_curios": "Place in Charm slot",
+  "item.magicfeather.stygian_feather.tooltip.requires_curios": "Place in Charm slot"
+
 }

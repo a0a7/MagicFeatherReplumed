@@ -5,6 +5,7 @@ import be.ephys.magicfeather.MagicFeather;
 import be.ephys.magicfeather.content.item.ArcaneFeatherItem;
 import be.ephys.magicfeather.content.item.MagicFeatherItem;
 import be.ephys.magicfeather.content.item.PrimevalFeatherItem;
+import be.ephys.magicfeather.content.item.StygianFeatherItem;
 import net.minecraft.core.Registry;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -29,7 +30,8 @@ public class MFItems {
 
   public static final RegistryObject<Item> ARCANE_FEATHER = ITEM_DEFERRED_REGISTER.register("arcane_feather", () -> new ArcaneFeatherItem(new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION)));
 
-  public static final RegistryObject<Item> PRIMEVAL_FEATHER = ITEM_DEFERRED_REGISTER.register("primeval_feather", () -> new PrimevalFeatherItem(new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION).durability(MFConfig.primevalFeatherDurability.get())));
+  public static final RegistryObject<Item> PRIMEVAL_FEATHER = ITEM_DEFERRED_REGISTER.register("primeval_feather", () -> new PrimevalFeatherItem(new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION).durability(128)));
+  public static final RegistryObject<Item> STYGIAN_FEATHER = ITEM_DEFERRED_REGISTER.register("stygian_feather", () -> new StygianFeatherItem(new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION)));
 
 
   @SubscribeEvent
@@ -37,6 +39,8 @@ public class MFItems {
     ITEM_DEFERRED_REGISTER.register(FMLJavaModLoadingContext.get().getModEventBus());
     MinecraftForge.EVENT_BUS.addListener(MagicFeatherItem::onPlayerTick);
     MinecraftForge.EVENT_BUS.addListener(ArcaneFeatherItem::onPlayerTick);
+    MinecraftForge.EVENT_BUS.addListener(PrimevalFeatherItem::onPlayerTick);
+    MinecraftForge.EVENT_BUS.addListener(StygianFeatherItem::onPlayerTick);
   }
 
   @SubscribeEvent

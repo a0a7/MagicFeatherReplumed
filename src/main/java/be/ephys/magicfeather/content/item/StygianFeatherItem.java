@@ -17,24 +17,18 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.fml.LogicalSide;
-import top.theillusivec4.curios.api.CuriosApi;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.WeakHashMap;
 
-public class PrimevalFeatherItem extends AbstractFeatherItem {
-    public PrimevalFeatherItem(Properties properties) {
+public class StygianFeatherItem extends AbstractFeatherItem  {
+    public StygianFeatherItem(Properties properties) {
         super(properties);
     }
 
+    public static final WeakHashMap<Player, StygianFeatherData> GLOBAL_PLAYER_DATA = new WeakHashMap<>();
 
-
-    public static final WeakHashMap<Player, PrimevalFeatherData> GLOBAL_PLAYER_DATA = new WeakHashMap<>();
-
-    public boolean isDamageable() {
-        return true;
-    }
     @Override
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
@@ -63,17 +57,17 @@ public class PrimevalFeatherItem extends AbstractFeatherItem {
 
         Player player = event.player;
 
-        PrimevalFeatherData data = GLOBAL_PLAYER_DATA.get(player);
+        StygianFeatherData data = GLOBAL_PLAYER_DATA.get(player);
         // if the player instance changes, we have to rebuild this.
         if (data == null || data.player != player) {
-            data = new PrimevalFeatherData(player);
+            data = new StygianFeatherData(player);
             GLOBAL_PLAYER_DATA.put(player, data);
         }
 
 
         data.onTick();
     }
-    private static class PrimevalFeatherData {
+    private static class StygianFeatherData {
         private final Player player;
         private boolean isSoftLanding = false;
         private boolean wasGrantedFlight = false;
@@ -81,7 +75,7 @@ public class PrimevalFeatherItem extends AbstractFeatherItem {
 
         private int checkTick = 0;
 
-        public PrimevalFeatherData(Player player) {
+        public StygianFeatherData(Player player) {
             this.player = player;
         }
 
@@ -90,22 +84,11 @@ public class PrimevalFeatherItem extends AbstractFeatherItem {
                 return;
             }
 
-            boolean mayFly = player.isCreative() || (hasItem(player, MFItems.PRIMEVAL_FEATHER.get()));
+            boolean mayFly = player.isCreative() || (hasItem(player, MFItems.STYGIAN_FEATHER.get()));
 
             // Remove durability if actively moving while flying with primeval feather
-            if (checkTick++ % 20 == 0 && player.getAbilities().flying && hasItem(player, MFItems.PRIMEVAL_FEATHER.get()) && player.getDeltaMovement().length() < 0.01) {
-                ItemStack featherItemStack = null;
-                if (isCuriosInstalled()) {
-                    featherItemStack = CuriosApi.getCuriosHelper().findFirstCurio(player, MFItems.PRIMEVAL_FEATHER.get()).get().stack();
-                }
-                for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
-                    ItemStack stack = player.getInventory().getItem(i);
-                    if (MFItems.PRIMEVAL_FEATHER.equals(stack.getItem())) {
-                        featherItemStack = stack;
-                    }
-                }
-                featherItemStack.hurtAndBreak(1, player,
-                        (player) -> player.broadcastBreakEvent(player.getUsedItemHand()));
+            if (checkTick++ % 20 == 0 && player.getAbilities().flying && hasItem(player, MFItems.STYGIAN_FEATHER.get())) {
+                player.addEffect(new MobEffectInstance(MobEffects.WITHER, 25, 1, true, true));
             }
                 if (mayFly) {
                 setMayFly(player, true);

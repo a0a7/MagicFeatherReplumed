@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GFG",
+    "GEG",
+    "GFG"
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:feather"
+    },
+    "F": {
+      "item": "minecraft:diamond"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "magicfeather:primeval_feather",
+    "count": 1
+  }
+}

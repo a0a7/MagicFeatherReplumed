@@ -13,6 +13,7 @@ public class MFConfig {
 
     public static ForgeConfigSpec.IntValue primevalFeatherDurability;
 
+
     public static ForgeConfigSpec buildSpec() {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
         verticalRangeType = builder.comment("How the beacon range is calculated vertically. JAVA = Vanilla Java Behavior. FULL_HEIGHT = expand vertical range to maximum")
@@ -32,6 +33,7 @@ public class MFConfig {
 
         primevalFeatherDurability = builder.comment("How many seconds of flight should the Primeval Feather provide before breaking?")
                 .defineInRange("range_computation.range_step", 60, Integer.MIN_VALUE, Integer.MAX_VALUE);
+
         return builder.build();
     }
 }
