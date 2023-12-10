@@ -22,11 +22,9 @@ Unlimited creative flight with no caveats. Unobtainable in survival by default, 
 
 ### Primeval Feather ![primevalfeather](https://github.com/sudolev/MagicFeatherReplumed/assets/61996958/4f6db06a-1250-4ac0-a072-8ad1653813e1)
 
-
-Like the Arcane Feather, but with durability that ticks down while flying.
+Like the Arcane Feather, but with durability that ticks down while flying. Can be enchanted with Unbreaking & Mending.
 
 ### Stygian Feather ![stygianfeather](https://github.com/sudolev/MagicFeatherReplumed/assets/61996958/ff31f826-aed9-47af-bbb0-8fd744a2cabe)
-
 
 Like the Arcane Feather, but inflicts a constant wither effect on the user while flying.
 
