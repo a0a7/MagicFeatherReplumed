@@ -12,11 +12,15 @@ Classic balanced alternative to the Extra Utilities Angel Ring, granting the bea
 
 ### Arcane Feather
 
-Unlimited creative flight with no caveats. Unobtainablle in survival by default, but configurable.
+Unlimited creative flight with no caveats. Unobtainable in survival by default, but configurable.
 
 ### Primeval Feather
 
-Like the Arcane Feather, but with durability. Unobtainablle in survival by default, but configurable.
+Like the Arcane Feather, but with durability.
+
+### Stygian Feather
+
+Like the Arcane Feather, but inflicts a constant wither effect on the user while flying.
 
 ## Credits 
 
