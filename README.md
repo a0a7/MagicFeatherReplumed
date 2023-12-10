@@ -1,12 +1,31 @@
-# Magic Feather (minecraft mod)
+# ![Magic Feather: Replumed Banner](https://github.com/sudolev/MagicFeatherReplumed/assets/61996958/081f2d54-e271-4f13-ae75-b34ce114dfc8)
 
-This mod adds a Magic Feather that gives its bearer creative flight within the range of a vanilla beacon.
+Magic Feather: Replumed is a continuation of the [Magic Feather](https://github.com/ephys/minecraft-magic-feather) mod by [Ephys](https://github.com/ephys) for versions 1.19+
 
-## Why ?
+It adds not only the Magic Feather, granting unlimited creative flight within the range of a vanilla beacon, but also two new feather types.
 
-I like the Angel Ring from Extra Utilities but find it removes the fun out of travelling 
-in minecraft. It renders horses, minecarts, boats, and the elytra completely useless.
+## Features
 
-It also makes certain challenges too easy (twilight forest, ender dragon, ...).
+### Magic Feather
 
-This system lets you have creative flight in and around your base without removing the fun flying around in an elytra. It also promotes building vanilla beacons which are underused.
+Classic balanced alternative to the Extra Utilities Angel Ring, granting the bearer creative flight within the range of any beacon.
+
+### Arcane Feather
+
+Unlimited creative flight with no caveats. Unobtainablle in survival by default, but configurable.
+
+### Elemental Feather
+
+Like the Arcane Feather, but with durability. Unobtainablle in survival by default, but configurable.
+
+## Credits 
+
+[Ephys](https://github.com/ephys) - Original Mod Author
+
+[Fuzs](https://github.com/Fuzss) - 1.19.2 Port Author
+
+[NetherSoul](https://github.com/N3therSoul) - Original Mod Contributor, also Italian localization
+
+[Insane96](https://github.com/Insane96) - Original Mod Contributor 
+
+[koelle25](https://github.com/koelle25) - Original Mod Contributor
