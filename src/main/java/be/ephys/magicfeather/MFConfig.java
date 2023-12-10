@@ -32,7 +32,7 @@ public class MFConfig {
                 .defineEnum("too_close_to_the_sun_behavior", MagicFeatherItem.FallStyle.NEGATE_FALL_DAMAGE);
 
         primevalFeatherDurability = builder.comment("How many seconds of flight should the Primeval Feather provide before breaking?")
-                .defineInRange("range_computation.range_step", 60, Integer.MIN_VALUE, Integer.MAX_VALUE);
+                .defineInRange("range_computation.range_step", 128, Integer.MIN_VALUE, Integer.MAX_VALUE);
 
         return builder.build();
     }

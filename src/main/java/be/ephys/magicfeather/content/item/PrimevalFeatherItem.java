@@ -10,11 +10,14 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Abilities;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.extensions.IForgeItem;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.fml.LogicalSide;
 import top.theillusivec4.curios.api.CuriosApi;
@@ -24,12 +27,9 @@ import java.util.List;
 import java.util.WeakHashMap;
 
 public class PrimevalFeatherItem extends AbstractFeatherItem {
-    public PrimevalFeatherItem(Properties properties) {
-        super(properties);
+    public PrimevalFeatherItem() {
+        super(new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION).durability(128));
     }
-
-
-
     public static final WeakHashMap<Player, PrimevalFeatherData> GLOBAL_PLAYER_DATA = new WeakHashMap<>();
 
     public boolean isDamageable() {
