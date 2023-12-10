@@ -2,9 +2,9 @@
 ![Available for 1.19.2-1.20+](https://img.shields.io/badge/available%20for-1.19.2‒1.20+-292A29) 
 ![Available for Forge & Neoforge](https://img.shields.io/badge/modloaders-Forge%20%26%20NeoForge-292A29) 
 ![Licensed under the MIT License](https://img.shields.io/badge/license-MIT-292A29)
-[![Join the Discord](https://img.shields.io/badge/discord-292A29?logo=discord)](https://discord.com/invite/ynQvWygqQT) 
-[![Download on Modrinth](https://img.shields.io/badge/modrinth-292A29?logo=modrinth)](https://modrinth.com/mod/magicfeather)
-[![Download on Curseforge](https://img.shields.io/badge/curseforge-292A29?logo=curseforge)](https://curseforge.com/minecraft/mc-mods/magicfeather)
+[![Join the Discord](https://img.shields.io/badge/Discord-292A29?logo=discord)](https://discord.com/invite/ynQvWygqQT) 
+[![Download on Modrinth](https://img.shields.io/badge/Modrinth-292A29?logo=modrinth)](https://modrinth.com/mod/magicfeather)
+[![Download on Curseforge](https://img.shields.io/badge/Curseforge-292A29?logo=curseforge)](https://curseforge.com/minecraft/mc-mods/magicfeather)
 ---
 Magic Feather: Replumed is a continuation of the [Magic Feather](https://github.com/ephys/minecraft-magic-feather) mod by [Ephys](https://github.com/ephys) for versions 1.19+
 
