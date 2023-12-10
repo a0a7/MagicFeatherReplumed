@@ -1,12 +1,37 @@
-# Magic Feather (minecraft mod)
+# ![Magic Feather: Replumed Banner](https://github.com/sudolev/MagicFeatherReplumed/assets/61996958/081f2d54-e271-4f13-ae75-b34ce114dfc8)
 
-This mod adds a Magic Feather that gives its bearer creative flight within the range of a vanilla beacon.
+Magic Feather: Replumed is a continuation of the [Magic Feather](https://github.com/ephys/minecraft-magic-feather) mod by [Ephys](https://github.com/ephys) for versions 1.19+
 
-## Why ?
+It adds not only the Magic Feather, granting unlimited creative flight within the range of a vanilla beacon, but also three other feather types.
 
-I like the Angel Ring from Extra Utilities but find it removes the fun out of travelling 
-in minecraft. It renders horses, minecarts, boats, and the elytra completely useless.
+## Features
 
-It also makes certain challenges too easy (twilight forest, ender dragon, ...).
+### Magic Feather ![magicfeather](https://github.com/sudolev/MagicFeatherReplumed/assets/61996958/ddc4aedc-cc90-4436-a448-e2e7e5d6b037)
 
-This system lets you have creative flight in and around your base without removing the fun flying around in an elytra. It also promotes building vanilla beacons which are underused.
+Classic balanced alternative to the Extra Utilities Angel Ring, granting the bearer creative flight within the range of any beacon.
+
+### Arcane Feather ![arcanefeather](https://github.com/sudolev/MagicFeatherReplumed/assets/61996958/614a4804-72f4-4e6d-83ce-55c02dfb57a8)
+
+Unlimited creative flight with no caveats. Unobtainable in survival by default, but configurable.
+
+### Primeval Feather ![primevalfeather](https://github.com/sudolev/MagicFeatherReplumed/assets/61996958/4f6db06a-1250-4ac0-a072-8ad1653813e1)
+
+
+Like the Arcane Feather, but with durability that ticks down while flying.
+
+### Stygian Feather ![stygianfeather](https://github.com/sudolev/MagicFeatherReplumed/assets/61996958/ff31f826-aed9-47af-bbb0-8fd744a2cabe)
+
+
+Like the Arcane Feather, but inflicts a constant wither effect on the user while flying.
+
+## Credits 
+
+[Ephys](https://github.com/ephys) - Original Mod Author
+
+[Fuzs](https://github.com/Fuzss) - 1.19.2 Port Author
+
+[NetherSoul](https://github.com/N3therSoul) - Original Mod Contributor, also Italian localization
+
+[Insane96](https://github.com/Insane96) - Original Mod Contributor 
+
+[koelle25](https://github.com/koelle25) - Original Mod Contributor
