@@ -1,24 +1,20 @@
 package be.ephys.magicfeather;
 
-import be.ephys.cookiecore.config.Config;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Abilities;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.ModList;
@@ -29,31 +25,16 @@ import java.util.List;
 import java.util.WeakHashMap;
 
 public class ItemMagicFeather extends Item {
+  // TODO this should be a capability
+  private static final WeakHashMap<Player, MagicFeatherData> GLOBAL_PLAYER_DATA = new WeakHashMap<>();
 
-  public static final String NAME = "magicfeather";
-  private static final WeakHashMap<Player, MagicFeatherData> playerData = new WeakHashMap<>();
-
-  @Config(name = "item.requires_curios", description = "If curios is installed, the magic feather will need to be installed in its charm slot to function.")
-  @Config.BooleanDefault(value = true)
-  public static ForgeConfigSpec.BooleanValue looseRequiresCurios;
-
-  @Config(name = "too_close_to_the_sun_behavior", description = "When losing the ability to fly, should the player receive a slow fall effect or simply negate the fall damage?")
-  @Config.EnumDefault(value = "NEGATE_FALL_DAMAGE", enumType = FallStyle.class)
-  public static ForgeConfigSpec.EnumValue<FallStyle> fallStyle;
-
-   enum FallStyle {
+   public enum FallStyle {
     SLOW_FALL,
     NEGATE_FALL_DAMAGE
   }
 
-  public ItemMagicFeather() {
-    super(
-      new Item.Properties()
-        .stacksTo(1)
-        .tab(CreativeModeTab.TAB_TRANSPORTATION)
-    );
-
-    setRegistryName(NAME);
+  public ItemMagicFeather(Properties properties) {
+    super(properties);
   }
 
   public int getEntityLifespan(ItemStack itemStack, Level world) {
@@ -75,7 +56,7 @@ public class ItemMagicFeather extends Item {
   }
 
   private static boolean requiresCurios() {
-    return isCuriosInstalled() && looseRequiresCurios.get();
+    return isCuriosInstalled() && ModConfigFile.looseRequiresCurios.get();
   }
 
   private static boolean isCuriosInstalled() {
@@ -93,7 +74,7 @@ public class ItemMagicFeather extends Item {
       }
 
       // if requireCurios is false, we'll check the main inventory
-      if (looseRequiresCurios.get()) {
+      if (ModConfigFile.looseRequiresCurios.get()) {
         return false;
       }
     }
@@ -115,15 +96,15 @@ public class ItemMagicFeather extends Item {
 
     Player player = Minecraft.getInstance().player;
     if (player != null) {
-      if (requiresCurios() && !isCuriosEquipped(player, ModItems.magicFeather)) {
+      if (requiresCurios() && !isCuriosEquipped(player, ModItems.MAGIC_FEATHER.get())) {
         tooltip.add(
-          new TranslatableComponent(getDescriptionId(stack) + ".tooltip.requires_curios")
+          Component.translatable(getDescriptionId(stack) + ".tooltip.requires_curios")
             .withStyle(Style.EMPTY.withColor(ChatFormatting.GRAY))
         );
       }
 
       tooltip.add(
-        new TranslatableComponent(getDescriptionId(stack) + ".tooltip.description")
+              Component.translatable(getDescriptionId(stack) + ".tooltip.description")
           .withStyle(Style.EMPTY.withColor(ChatFormatting.GRAY))
       );
     }
@@ -135,18 +116,18 @@ public class ItemMagicFeather extends Item {
     return null;
   }
 
-  public void onPlayerTick(TickEvent.PlayerTickEvent event) {
+  public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
     if (event.side != LogicalSide.SERVER) {
       return;
     }
 
     Player player = event.player;
 
-    MagicFeatherData data = ItemMagicFeather.playerData.get(player);
+    MagicFeatherData data = ItemMagicFeather.GLOBAL_PLAYER_DATA.get(player);
     // if the player instance changes, we have to rebuild this.
     if (data == null || data.player != player) {
       data = new MagicFeatherData(player);
-      ItemMagicFeather.playerData.put(player, data);
+      ItemMagicFeather.GLOBAL_PLAYER_DATA.put(player, data);
     }
 
     data.onTick();
@@ -171,7 +152,7 @@ public class ItemMagicFeather extends Item {
         return;
       }
 
-      boolean hasItem = hasItem(player, ModItems.magicFeather);
+      boolean hasItem = hasItem(player, ModItems.MAGIC_FEATHER.get());
       boolean mayFly = player.isCreative() || (hasItem && checkBeaconInRange(player));
 
       if (mayFly) {
@@ -194,7 +175,7 @@ public class ItemMagicFeather extends Item {
     }
 
     private boolean softLand() {
-      if (fallStyle.get() == FallStyle.SLOW_FALL) {
+      if (ModConfigFile.fallStyle.get() == FallStyle.SLOW_FALL) {
         return this.slowFall();
       } else {
         return this.negateFallDamage();

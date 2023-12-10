@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[40,)"
+loaderVersion="[41,)"
 license="MIT"
 issueTrackerURL="https://github.com/Ephys/minecraft-magic-feather/issues"
 
@@ -21,30 +21,19 @@ to use alternative methods of travel when exploring.
 [[dependencies.magicfeather]]
     modId="forge"
     mandatory=true
-    versionRange="[40,)"
+    versionRange="[41,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.magicfeather]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.2,1.19)"
+    versionRange="[1.19,1.19.2]"
     ordering="NONE"
     side="BOTH"
-[[dependencies.magicfeather]]
-    modId="cookiecore"
-    mandatory=true
-    versionRange="[1.18.2-4.0.0,)"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.magicfeather]]
-    modId="alexsmobs"
-    mandatory=false
-    ordering="AFTER"
-    versionRange="[1.0.0,)"
 
 [[dependencies.magicfeather]]
     modId="curios"
     mandatory=false
-    versionRange="[1.18.2-5.0.7.1,)"
+    versionRange="*"
     ordering="AFTER"
     side="BOTH"
