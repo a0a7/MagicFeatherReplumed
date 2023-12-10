@@ -14,7 +14,7 @@ Classic balanced alternative to the Extra Utilities Angel Ring, granting the bea
 
 Unlimited creative flight with no caveats. Unobtainablle in survival by default, but configurable.
 
-### Elemental Feather
+### Primeval Feather
 
 Like the Arcane Feather, but with durability. Unobtainablle in survival by default, but configurable.
 
