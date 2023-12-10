@@ -28,6 +28,8 @@ Like the Arcane Feather, but inflicts a constant wither effect on the user while
 
 [Ephys](https://github.com/ephys) - Original Mod Author
 
+[EizhFox](https://www.curseforge.com/members/forge_user_25568319/projects) - Original Mod Artist
+
 [Fuzs](https://github.com/Fuzss) - 1.19.2 Port Author
 
 [NetherSoul](https://github.com/N3therSoul) - Original Mod Contributor, also Italian localization
