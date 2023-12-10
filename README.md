@@ -2,23 +2,25 @@
 
 Magic Feather: Replumed is a continuation of the [Magic Feather](https://github.com/ephys/minecraft-magic-feather) mod by [Ephys](https://github.com/ephys) for versions 1.19+
 
-It adds not only the Magic Feather, granting unlimited creative flight within the range of a vanilla beacon, but also two new feather types.
+It adds not only the Magic Feather, granting unlimited creative flight within the range of a vanilla beacon, but also three other feather types.
 
 ## Features
 
-### Magic Feather
+### Magic Feather ![magicfeather](https://github.com/sudolev/MagicFeatherReplumed/assets/61996958/ddc4aedc-cc90-4436-a448-e2e7e5d6b037)
 
 Classic balanced alternative to the Extra Utilities Angel Ring, granting the bearer creative flight within the range of any beacon.
 
-### Arcane Feather
+### Arcane Feather ![arcanefeather](https://github.com/sudolev/MagicFeatherReplumed/assets/61996958/614a4804-72f4-4e6d-83ce-55c02dfb57a8)
 
 Unlimited creative flight with no caveats. Unobtainable in survival by default, but configurable.
 
-### Primeval Feather
+### Primeval Feather ![primevalfeather](https://github.com/sudolev/MagicFeatherReplumed/assets/61996958/4f6db06a-1250-4ac0-a072-8ad1653813e1)
 
-Like the Arcane Feather, but with durability.
 
-### Stygian Feather
+Like the Arcane Feather, but with durability that ticks down while flying.
+
+### Stygian Feather ![stygianfeather](https://github.com/sudolev/MagicFeatherReplumed/assets/61996958/ff31f826-aed9-47af-bbb0-8fd744a2cabe)
+
 
 Like the Arcane Feather, but inflicts a constant wither effect on the user while flying.
 
