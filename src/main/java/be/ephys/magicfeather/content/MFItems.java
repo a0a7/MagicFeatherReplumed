@@ -1,6 +1,7 @@
 package be.ephys.magicfeather.content;
 
 import be.ephys.magicfeather.MagicFeather;
+import be.ephys.magicfeather.content.item.MagicFeatherItem;
 import net.minecraft.core.Registry;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;

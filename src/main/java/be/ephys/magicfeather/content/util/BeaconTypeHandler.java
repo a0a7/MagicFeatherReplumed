@@ -1,4 +1,4 @@
-package be.ephys.magicfeather.content;
+package be.ephys.magicfeather.content.util;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
 

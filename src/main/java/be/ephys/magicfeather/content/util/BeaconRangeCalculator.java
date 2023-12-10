@@ -1,7 +1,6 @@
-package be.ephys.magicfeather.content;
+package be.ephys.magicfeather.content.util;
 
 import be.ephys.magicfeather.MFConfig;
-import be.ephys.magicfeather.content.BeaconTypeHandler;
 import be.ephys.magicfeather.mixin.BeaconBlockEntityAccessor;
 import be.ephys.magicfeather.mixin.LevelAccessor;
 import net.minecraft.core.BlockPos;
@@ -9,13 +8,11 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BeaconBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.TickingBlockEntity;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.WeakHashMap;
-import java.util.function.Predicate;
 
 public final class BeaconRangeCalculator {
 

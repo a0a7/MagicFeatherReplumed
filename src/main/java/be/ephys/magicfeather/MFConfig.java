@@ -1,7 +1,7 @@
 package be.ephys.magicfeather;
 
-import be.ephys.magicfeather.content.BeaconRangeCalculator;
-import be.ephys.magicfeather.content.MagicFeatherItem;
+import be.ephys.magicfeather.content.util.BeaconRangeCalculator;
+import be.ephys.magicfeather.content.item.MagicFeatherItem;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class MFConfig {
@@ -9,7 +9,7 @@ public class MFConfig {
     public static ForgeConfigSpec.IntValue baseRange;
     public static ForgeConfigSpec.IntValue rangeStep;
     public static ForgeConfigSpec.BooleanValue looseRequiresCurios;
-    public static ForgeConfigSpec.EnumValue<be.ephys.magicfeather.content.MagicFeatherItem.FallStyle> fallStyle;
+    public static ForgeConfigSpec.EnumValue<MagicFeatherItem.FallStyle> fallStyle;
     public static ForgeConfigSpec buildSpec() {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
         verticalRangeType = builder.comment("How the beacon range is calculated vertically. JAVA = Vanilla Java Behavior. FULL_HEIGHT = expand vertical range to maximum")

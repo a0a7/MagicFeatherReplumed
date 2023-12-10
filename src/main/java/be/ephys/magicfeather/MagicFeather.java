@@ -1,7 +1,7 @@
 package be.ephys.magicfeather;
 
-import be.ephys.magicfeather.content.BeaconRangeCalculator;
-import be.ephys.magicfeather.content.BeaconTypeHandler;
+import be.ephys.magicfeather.content.util.BeaconRangeCalculator;
+import be.ephys.magicfeather.content.util.BeaconTypeHandler;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;

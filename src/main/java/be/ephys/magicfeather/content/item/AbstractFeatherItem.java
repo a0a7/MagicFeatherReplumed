@@ -1,6 +1,7 @@
-package be.ephys.magicfeather.content;
+package be.ephys.magicfeather.content.item;
 
 import be.ephys.magicfeather.MFConfig;
+import be.ephys.magicfeather.content.MFItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -25,16 +26,16 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.WeakHashMap;
 
-public class MagicFeatherItem extends Item {
+public class AbstractFeatherItem extends Item {
   // TODO this should be a capability
-  private static final WeakHashMap<Player, MagicFeatherData> GLOBAL_PLAYER_DATA = new WeakHashMap<>();
+  public static final WeakHashMap<Player, FeatherData> GLOBAL_PLAYER_DATA = new WeakHashMap<>();
 
    public enum FallStyle {
     SLOW_FALL,
     NEGATE_FALL_DAMAGE
   }
 
-  public MagicFeatherItem(Properties properties) {
+  public AbstractFeatherItem(Properties properties) {
     super(properties);
   }
 
@@ -42,7 +43,7 @@ public class MagicFeatherItem extends Item {
     return Integer.MAX_VALUE;
   }
 
-  private static void setMayFly(Player player, boolean mayFly) {
+  public static void setMayFly(Player player, boolean mayFly) {
 
     if (player.getAbilities().mayfly == mayFly) {
       return;
@@ -56,19 +57,19 @@ public class MagicFeatherItem extends Item {
     return true;
   }
 
-  private static boolean requiresCurios() {
+  public static boolean requiresCurios() {
     return isCuriosInstalled() && MFConfig.looseRequiresCurios.get();
   }
 
-  private static boolean isCuriosInstalled() {
+  public static boolean isCuriosInstalled() {
     return ModList.get().isLoaded("curios");
   }
 
-  private static boolean isCuriosEquipped(Player player, Item item) {
+  public static boolean isCuriosEquipped(Player player, Item item) {
     return CuriosApi.getCuriosHelper().findFirstCurio(player, item).isPresent();
   }
 
-  private static boolean hasItem(Player player, Item item) {
+  public static boolean hasItem(Player player, Item item) {
     if (isCuriosInstalled()) {
       if (isCuriosEquipped(player, item)) {
         return true;
@@ -124,37 +125,34 @@ public class MagicFeatherItem extends Item {
 
     Player player = event.player;
 
-    MagicFeatherData data = MagicFeatherItem.GLOBAL_PLAYER_DATA.get(player);
+    FeatherData data = AbstractFeatherItem.GLOBAL_PLAYER_DATA.get(player);
     // if the player instance changes, we have to rebuild this.
     if (data == null || data.player != player) {
-      data = new MagicFeatherData(player);
-      MagicFeatherItem.GLOBAL_PLAYER_DATA.put(player, data);
+      data = new FeatherData(player);
+      AbstractFeatherItem.GLOBAL_PLAYER_DATA.put(player, data);
     }
 
     data.onTick();
   }
 
-  private static class MagicFeatherData {
+  public static class FeatherData {
     private final Player player;
     private boolean isSoftLanding = false;
     private boolean wasGrantedFlight = false;
     private boolean isSlowFalling = false;
 
     private int checkTick = 0;
-    private boolean beaconInRangeCache;
 
-    public MagicFeatherData(Player player) {
+    public FeatherData(Player player) {
       this.player = player;
-      this.beaconInRangeCache = player.getAbilities().mayfly;
     }
-
     public void onTick() {
       if (player.isSpectator()) {
         return;
       }
 
       boolean hasItem = hasItem(player, MFItems.MAGIC_FEATHER.get());
-      boolean mayFly = player.isCreative() || (hasItem && checkBeaconInRange(player));
+      boolean mayFly = player.isCreative() || (hasItem);
 
       if (mayFly) {
         setMayFly(player, true);
@@ -175,7 +173,7 @@ public class MagicFeatherItem extends Item {
       wasGrantedFlight = mayFly;
     }
 
-    private boolean softLand() {
+    public boolean softLand() {
       if (MFConfig.fallStyle.get() == FallStyle.SLOW_FALL) {
         return this.slowFall();
       } else {
@@ -226,17 +224,6 @@ public class MagicFeatherItem extends Item {
         // softland in progress
         return false;
       }
-    }
-
-    private boolean checkBeaconInRange(Player player) {
-
-      if (checkTick++ % 20 != 0) {
-        return beaconInRangeCache;
-      }
-
-      beaconInRangeCache = BeaconRangeCalculator.isInBeaconRange(player);
-
-      return beaconInRangeCache;
     }
   }
 }
