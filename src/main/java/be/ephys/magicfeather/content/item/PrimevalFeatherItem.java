@@ -100,12 +100,14 @@ public class PrimevalFeatherItem extends AbstractFeatherItem {
                 }
                 for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
                     ItemStack stack = player.getInventory().getItem(i);
-                    if (MFItems.PRIMEVAL_FEATHER.equals(stack.getItem())) {
+                    if (stack.getItem() instanceof PrimevalFeatherItem) {
                         featherItemStack = stack;
                     }
                 }
-                featherItemStack.hurtAndBreak(1, player,
-                        (player) -> player.broadcastBreakEvent(player.getUsedItemHand()));
+                if (featherItemStack != null) {
+                    featherItemStack.hurtAndBreak(1, player,
+                            (player) -> player.broadcastBreakEvent(player.getUsedItemHand()));
+                }
             }
                 if (mayFly) {
                 setMayFly(player, true);

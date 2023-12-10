@@ -9,15 +9,15 @@ version="0.1"
 displayName="Magic Feather: Replumed"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/magic-feather"
 logoFile="logo.png"
-credits="RWTema, Fuzss, sudolev"
-authors="Ephys, EizhFox"
+credits="RWTema, Fuzss"
+authors="sudolev, Ephys, EizhFox"
 description='''
+Magic Feather: Replumed is a continuation of the Magic Feather mod for versions 1.19+.
+
 The Magic Feather item is an alternative take on the Angel Ring from Extra Utilities.
 
 It balances creative flight by making it only available around Beacons, thus forcing the player
 to use alternative methods of travel when exploring.
-
-Magic Feather: Replumed is a continuation of Magic Feather for versions 1.19+ that includes the Magic Feather as well as 3 new types of flight feather.
 '''
 [[dependencies.magicfeather]]
     modId="forge"
