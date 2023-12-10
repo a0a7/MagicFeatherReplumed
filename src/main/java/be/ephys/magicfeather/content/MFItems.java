@@ -1,15 +1,19 @@
 package be.ephys.magicfeather.content;
 
+import be.ephys.magicfeather.MFConfig;
 import be.ephys.magicfeather.MagicFeather;
 import be.ephys.magicfeather.content.item.ArcaneFeatherItem;
 import be.ephys.magicfeather.content.item.MagicFeatherItem;
+import be.ephys.magicfeather.content.item.PrimevalFeatherItem;
 import net.minecraft.core.Registry;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLConstructModEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -24,6 +28,9 @@ public class MFItems {
   public static final RegistryObject<Item> MAGIC_FEATHER = ITEM_DEFERRED_REGISTER.register("magic_feather", () -> new MagicFeatherItem(new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION)));
 
   public static final RegistryObject<Item> ARCANE_FEATHER = ITEM_DEFERRED_REGISTER.register("arcane_feather", () -> new ArcaneFeatherItem(new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION)));
+
+  public static final RegistryObject<Item> PRIMEVAL_FEATHER = ITEM_DEFERRED_REGISTER.register("primeval_feather", () -> new PrimevalFeatherItem(new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION).durability(MFConfig.primevalFeatherDurability.get())));
+
 
   @SubscribeEvent
   public static void onConstructMod(final FMLConstructModEvent evt) {

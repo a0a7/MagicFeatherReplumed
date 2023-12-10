@@ -11,25 +11,33 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Abilities;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.fml.LogicalSide;
+import top.theillusivec4.curios.api.CuriosApi;
+import top.theillusivec4.curios.api.type.capability.ICurio;
+import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.WeakHashMap;
 
-public class ArcaneFeatherItem extends AbstractFeatherItem {
-    public ArcaneFeatherItem(Properties properties) {
+public class PrimevalFeatherItem extends AbstractFeatherItem  {
+    public PrimevalFeatherItem(Properties properties) {
         super(properties);
     }
 
+
+
     public static final WeakHashMap<Player, ArcaneFeatherData> GLOBAL_PLAYER_DATA = new WeakHashMap<>();
 
-
+    public boolean isDamageable() {
+        return true;
+    }
     @Override
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
@@ -37,7 +45,7 @@ public class ArcaneFeatherItem extends AbstractFeatherItem {
 
         Player player = Minecraft.getInstance().player;
         if (player != null) {
-            if (requiresCurios() && !isCuriosEquipped(player, MFItems.ARCANE_FEATHER.get())) {
+            if (requiresCurios() && !isCuriosEquipped(player, MFItems.PRIMEVAL_FEATHER.get())) {
                 tooltip.add(
                         Component.translatable(getDescriptionId(stack) + ".tooltip.requires_curios")
                                 .withStyle(Style.EMPTY.withColor(ChatFormatting.GRAY))
@@ -65,6 +73,7 @@ public class ArcaneFeatherItem extends AbstractFeatherItem {
             GLOBAL_PLAYER_DATA.put(player, data);
         }
 
+
         data.onTick();
     }
     private static class ArcaneFeatherData {
@@ -84,9 +93,24 @@ public class ArcaneFeatherItem extends AbstractFeatherItem {
                 return;
             }
 
-            boolean mayFly = player.isCreative() || (hasItem(player, MFItems.ARCANE_FEATHER.get()));
+            boolean mayFly = player.isCreative() || (hasItem(player, MFItems.PRIMEVAL_FEATHER.get()));
 
-            if (mayFly) {
+            // Remove durability if actively moving while flying with primeval feather
+            if (checkTick++ % 20 == 0 && player.getAbilities().flying && hasItem(player, MFItems.PRIMEVAL_FEATHER.get()) && player.getDeltaMovement().length() < 0.01) {
+                ItemStack featherItemStack = null;
+                if (isCuriosInstalled()) {
+                    featherItemStack = CuriosApi.getCuriosHelper().findFirstCurio(player, MFItems.PRIMEVAL_FEATHER.get()).get().stack();
+                }
+                for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+                    ItemStack stack = player.getInventory().getItem(i);
+                    if (MFItems.PRIMEVAL_FEATHER.equals(stack.getItem())) {
+                        featherItemStack = stack;
+                    }
+                }
+                featherItemStack.hurtAndBreak(1, player,
+                        (player) -> player.broadcastBreakEvent(player.getUsedItemHand()));
+            }
+                if (mayFly) {
                 setMayFly(player, true);
                 isSoftLanding = false;
             } else {
