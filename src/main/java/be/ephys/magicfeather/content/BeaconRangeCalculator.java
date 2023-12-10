@@ -1,5 +1,7 @@
-package be.ephys.magicfeather;
+package be.ephys.magicfeather.content;
 
+import be.ephys.magicfeather.MFConfig;
+import be.ephys.magicfeather.content.BeaconTypeHandler;
 import be.ephys.magicfeather.mixin.BeaconBlockEntityAccessor;
 import be.ephys.magicfeather.mixin.LevelAccessor;
 import net.minecraft.core.BlockPos;
@@ -40,7 +42,7 @@ public final class BeaconRangeCalculator {
         Level world = entity.level;
         Vec3 entityPos = entity.position();
 
-        BeaconVerticalRangeType verticalRangeType = ModConfigFile.verticalRangeType.get();
+        BeaconVerticalRangeType verticalRangeType = MFConfig.verticalRangeType.get();
 
         // vanilla creates a new block entity if one isn't found, this will be problematic here, so use the forge method that doesn't do that and just returns null
         List<BlockEntity> tickingBlockEntities = ((LevelAccessor) world).getBlockEntityTickers().stream()
@@ -93,8 +95,8 @@ public final class BeaconRangeCalculator {
             return 0;
         }
 
-        int rangeStep = ModConfigFile.rangeStep.get();
-        int baseRange = ModConfigFile.baseRange.get();
+        int rangeStep = MFConfig.rangeStep.get();
+        int baseRange = MFConfig.baseRange.get();
 
         int level = ((BeaconBlockEntityAccessor) beacon).getLevels();
 

@@ -1,5 +1,6 @@
-package be.ephys.magicfeather;
+package be.ephys.magicfeather.content;
 
+import be.ephys.magicfeather.MagicFeather;
 import net.minecraft.core.Registry;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -15,15 +16,15 @@ import net.minecraftforge.registries.RegistryObject;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.SlotTypePreset;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = MagicFeatherMod.MODID)
-public class ModItems {
-  private static final DeferredRegister<Item> ITEM_DEFERRED_REGISTER = DeferredRegister.create(Registry.ITEM_REGISTRY, MagicFeatherMod.MODID);
-  public static final RegistryObject<Item> MAGIC_FEATHER = ITEM_DEFERRED_REGISTER.register("magicfeather", () -> new ItemMagicFeather(new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION)));
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = MagicFeather.MODID)
+public class MFItems {
+  private static final DeferredRegister<Item> ITEM_DEFERRED_REGISTER = DeferredRegister.create(Registry.ITEM_REGISTRY, MagicFeather.MODID);
+  public static final RegistryObject<Item> MAGIC_FEATHER = ITEM_DEFERRED_REGISTER.register("magicfeather", () -> new MagicFeatherItem(new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION)));
 
   @SubscribeEvent
   public static void onConstructMod(final FMLConstructModEvent evt) {
     ITEM_DEFERRED_REGISTER.register(FMLJavaModLoadingContext.get().getModEventBus());
-    MinecraftForge.EVENT_BUS.addListener(ItemMagicFeather::onPlayerTick);
+    MinecraftForge.EVENT_BUS.addListener(MagicFeatherItem::onPlayerTick);
   }
 
   @SubscribeEvent
