@@ -41,3 +41,5 @@ Like the Arcane Feather, but inflicts a constant wither effect on the user while
 [Insane96](https://github.com/Insane96) - Original Mod Contributor 
 
 [koelle25](https://github.com/koelle25) - Original Mod Contributor
+
+![image](https://github.com/sudolev/MagicFeatherReplumed/assets/61996958/561c4cbf-3bb3-481d-a453-67175f09631f)
