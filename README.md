@@ -1,3 +1,6 @@
+## This project is now maintained by Project8gbDeRam in [his fork of this repo](https://github.com/Leclowndu93150/MagicFeatherReplumed).
+### Please visit [the Curseforge page](https://legacy.curseforge.com/minecraft/mc-mods/magic-feather-replumed) for up-to-date releases.
+
 ![Magic Feather: Replumed Banner](https://github.com/sudolev/MagicFeatherReplumed/assets/61996958/081f2d54-e271-4f13-ae75-b34ce114dfc8)
 ![Available for 1.19.2-1.20+](https://img.shields.io/badge/available%20for-1.19.2-292A29) 
 ![Available for Forge & Neoforge](https://img.shields.io/badge/modloaders-Forge-292A29) 
